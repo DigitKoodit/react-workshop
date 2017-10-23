@@ -2,9 +2,10 @@ import React from 'react'
 import PropTypes from 'prop-types';
 import {
   BrowserRouter as Router,
-  Route,
-  Link
+  Link,
+  Route
 } from 'react-router-dom'
+import DataWrapper from '../components/DataWrapper';
 
 const GuildView = ({ guild }) => <h3>Hello {guild}!</h3>;
 
@@ -28,34 +29,43 @@ const routes = [
   { path: '/asteriski',
     guild: 'Asteriski',
     component: GuildView,
+    dataLoader: () => {
+      console.log('Fetching Data for Asteriski')
+    }
   },
   { path: '/digit',
     guild: 'Digit',
     component: GuildView,
+    dataLoader: () => {
+      console.log('Fetching Data for Digit')
+    }
   },
   { path: '/nucleus',
     guild: 'Nucleus',
     component: GuildView,
+    dataLoader: () => {
+      console.log('Fetching Data for Nucleus')
+    }
   }
 ];
 
 const RouteWrapper = (route) =>
   <Route exact path={route.path} render={ props => {
-    return <route.component {...props} guild={route.guild} routes={route.routes}/>
+    return <DataWrapper route={route} {...props} />
   } }/>
 
 const RouterComponent = () => (
-  <Router>
-    <div>
-      <ul>
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/asteriski">Asteriski</Link></li>
-        <li><Link to="/digit">Digit</Link></li>
-        <li><Link to="/nucleus">Nucleus</Link></li>
-      </ul>
-      <hr/>
-      {routes.map((route, i) => (
-        <RouteWrapper key={i} {...route}/>
+<Router>
+  <div>
+    <ul>
+      <li><Link to="/">Home</Link></li>
+      <li><Link to="/asteriski">Asteriski</Link></li>
+      <li><Link to="/digit">Digit</Link></li>
+      <li><Link to="/nucleus">Nucleus</Link></li>
+    </ul>
+    <hr/>
+    {routes.map((route, i) => (
+      <RouteWrapper key={i} {...route}/>
       ))}
     </div>
   </Router>
