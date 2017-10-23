@@ -30,7 +30,7 @@ const routes = [
   }
 ];
 
-const RouteWithSubRoutes = (route) =>
+const RouteWrapper = (route) =>
   <Route exact path={route.path} render={ props => {
     return <route.component {...props} guild={route.guild} routes={route.routes}/>
   } }/>
@@ -46,7 +46,7 @@ const RouterComponent = () => (
       </ul>
       <hr/>
       {routes.map((route, i) => (
-        <RouteWithSubRoutes key={i} {...route}/>
+        <RouteWrapper key={i} {...route}/>
       ))}
     </div>
   </Router>
