@@ -1,20 +1,5 @@
 import React, { Component } from 'react';
-
-const fakeData = [
-  {
-    tutors: "Piia ja Santeri-Korianteri",
-    students: [
-      {
-        name: "Sakari Villapaita",
-        chronicles: 5
-      },
-      {
-        name: "Sissi Juusto",
-        chronicles: 12
-      }
-    ]
-  }
-];
+import fetchData from '../core/api';
 
 class DataWrapper extends Component {
   constructor(props) {
@@ -34,18 +19,20 @@ class DataWrapper extends Component {
     if (route.dataLoader) {
       route.dataLoader();
 
-      setTimeout(() => {
-        this.setState({
-          loading: false,
-          data: fakeData
+      fetchData()
+        .then((freshmanData) => {
+          setTimeout(() => {
+            this.setState({
+              loading: false,
+              data: freshmanData
+            });
+          }, 1000);
         });
-      }, 5000);
     }
+
   }
 
   componentWillUnmount() {
-    const { route } = this.props;
-    console.log(`DataWrapper for ${route.guild} will unmount`);
     this.setState(null);
   }
 

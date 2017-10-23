@@ -1,24 +1,43 @@
 import React, { Component } from 'react';
+import CommentView from './CommentView';
+import GroupView from './GroupView';
 
 class GuildView extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-
+      selectedFreshman: null
     };
   }
 
-  componentWillMount() {
+  toggleSelectedFreshman(selection) {
+    const { selectedFreshman } = this.state;
 
-  }
+    if (selectedFreshman || !selection) {
+      return this.setState({ selectedFreshman: null });
+    }
 
-  componentWillUnmount() {
-
+    return this.setState({ selectedFreshman: selection });
   }
 
   render() {
-    return <span/>;
+    const { state, props } = this;
+    const { selectedFreshman } = state;
+    const { data } = props;
+
+    return selectedFreshman
+      ? <CommentView
+        freshman={selectedFreshman}
+        callback={ () => this.toggleSelectedFreshman() }        
+      />
+      : data.map((group, i) =>
+        <GroupView
+          key={i}
+          groupData={group}
+          viewToggle={ selection => this.toggleSelectedFreshman(selection) }
+        />
+      );
   }
 }
 

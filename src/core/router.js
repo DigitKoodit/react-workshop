@@ -1,21 +1,11 @@
 import React from 'react'
-import PropTypes from 'prop-types';
 import {
   BrowserRouter as Router,
   Link,
   Route
 } from 'react-router-dom'
 import DataWrapper from '../components/DataWrapper';
-
-const GuildView = ({ guild }) => <h3>Hello {guild}!</h3>;
-
-GuildView.defaultProps = {
-  guild: 'Everyone'
-};
-
-GuildView.propTypes = {
-  guild: PropTypes.string
-};
+import GuildView from '../components/GuildView';
 
 const Home = () =>
   <div>
