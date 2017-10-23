@@ -18,9 +18,9 @@ GuildView.propTypes = {
 };
 
 const Home = () =>
-<div>
-  <h2>Welcome to Kroniikkamaatti v3</h2>
-</div>;
+  <div>
+    <h2>Welcome to Kroniikkamaatti v3</h2>
+  </div>;
 
 const routes = [
   { path: '/',
