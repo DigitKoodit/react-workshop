@@ -24,3 +24,8 @@ Create React App does a lot of stuff under the hood. It's currently widely regar
 
 You can find the guide for working with Create React App [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
 
+### License
+
+[MIT](https://opensource.org/licenses/MIT)
+
+Feel free to use this workshop as you see fit.
