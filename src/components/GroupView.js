@@ -1,14 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './GroupView.css';
 
 const GroupView = (props) => {
   const { groupData, viewToggle } = props;
   const { tutors, students } = groupData;
 
   return(
-    <div>
+    <div className="GroupView">
       <h3>{tutors}</h3>
-      <ul>
+      <ul className="GroupView-Students">
         { students.map((student, i) =>
         <li key={i}>
           <a onClick={ () => viewToggle(student) }>{student.name}</a>

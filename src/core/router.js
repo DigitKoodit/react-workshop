@@ -1,11 +1,11 @@
 import React from 'react'
 import {
   BrowserRouter as Router,
-  Link,
   Route
-} from 'react-router-dom'
+} from 'react-router-dom';
 import DataWrapper from '../components/DataWrapper';
 import GuildView from '../components/GuildView';
+import Navigation from '../components/Navigation';
 
 const Home = () =>
   <div>
@@ -14,6 +14,7 @@ const Home = () =>
 
 const routes = [
   { path: '/',
+    guild: 'Home',
     component: Home,
   },
   { path: '/asteriski',
@@ -47,12 +48,7 @@ const RouteWrapper = (route) =>
 const RouterComponent = () => (
 <Router>
   <div>
-    <ul>
-      <li><Link to="/">Home</Link></li>
-      <li><Link to="/asteriski">Asteriski</Link></li>
-      <li><Link to="/digit">Digit</Link></li>
-      <li><Link to="/nucleus">Nucleus</Link></li>
-    </ul>
+    <Navigation routes={routes} />
     <hr/>
     {routes.map((route, i) => (
       <RouteWrapper key={i} {...route}/>
