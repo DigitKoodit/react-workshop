@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import './CommentView.css';
 
 class CommentView extends Component {
   constructor(props) {
@@ -29,7 +30,7 @@ class CommentView extends Component {
     const { freshman } = this.props;
 
     return (
-      <div>
+      <div className="CommentView">
         <h3>{freshman.name} - {freshman.chronicles} kirjoitusta</h3>
         <textarea
           onChange={ (event) => this.onTextInput(event) }
