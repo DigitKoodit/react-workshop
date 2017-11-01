@@ -1,0 +1,20 @@
+.GroupView {
+  background-color: lightblue;
+  padding: 20px;
+  margin: 20px;
+  display: inline-block;
+  width: 300px;
+  height: 300px;
+  vertical-align: top;
+  box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.19);
+}
+
+.GroupView-Students {
+  padding: 0;
+}
+
+.GroupView-Students > li {
+  list-style: none;
+  padding: 10px;
+  font-weight: 600;
+}
